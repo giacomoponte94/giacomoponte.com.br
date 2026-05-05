@@ -32,8 +32,10 @@
 
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 22px 60px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(17,29,41,0.96), transparent); transition: padding 0.35s, background 0.35s; }
   nav.scrolled { padding: 14px 60px; background: rgba(17,29,41,0.97); border-bottom: 1px solid rgba(74,127,165,0.18); }
-  .nav-logo { background: #ffffff; padding: 0; border-radius: 4px; overflow: hidden; }
+  .nav-logo { background: none; padding: 0; border-radius: 4px; overflow: hidden; }
   .nav-logo img { height: 80px; width: auto; display: block; }
+  .footer-logo { background: none; padding: 0; border-radius: 4px; overflow: hidden; display: inline-block; }
+  .footer-logo img { height: 80px; width: auto; display: block; opacity: 1; }
   .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a { color: rgba(240,237,232,0.9); text-decoration: none; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; transition: color 0.25s; position: relative; }
   .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
@@ -131,7 +133,7 @@
   .form-success { display: none; padding: 16px 20px; background: rgba(74,127,165,0.1); border-left: 2px solid var(--accent); color: var(--accent); font-size: 0.78rem; font-weight: 500; }
 
   footer { background: var(--navy-deep); border-top: 1px solid rgba(74,127,165,0.12); padding: 22px 60px; display: flex; justify-content: space-between; align-items: center; }
-  .footer-logo { background: #ffffff; padding: 0; border-radius: 4px; overflow: hidden; display: inline-block; }
+  .footer-logo { background: none; padding: 0; border-radius: 4px; overflow: hidden; display: inline-block; }
   .footer-logo img { height: 80px; width: auto; display: block; opacity: 1; }
   .footer-copy { font-size: 0.9rem; color: rgba(240,237,232,0.3); letter-spacing: 0.05em; }
   .footer-social { display: flex; gap: 14px; margin-right: 72px; }
@@ -547,6 +549,35 @@
       document.body.style.overflow = '';
     });
   });
+</script>
+
+<script>
+  function removeWhiteBg(id) {
+    var img = document.getElementById(id);
+    if (!img) return;
+    function process() {
+      if (img._bgDone) return;
+      img._bgDone = true;
+      var c = document.createElement('canvas');
+      var ctx = c.getContext('2d');
+      c.width = img.naturalWidth;
+      c.height = img.naturalHeight;
+      ctx.drawImage(img, 0, 0);
+      try {
+        var d = ctx.getImageData(0, 0, c.width, c.height);
+        for (var i = 0; i < d.data.length; i += 4) {
+          if (d.data[i] > 230 && d.data[i+1] > 230 && d.data[i+2] > 230)
+            d.data[i+3] = 0;
+        }
+        ctx.putImageData(d, 0, 0);
+        img.src = c.toDataURL();
+      } catch(e) {}
+    }
+    if (img.complete && img.naturalWidth) process();
+    else img.addEventListener('load', process);
+  }
+  removeWhiteBg('logo-nav');
+  removeWhiteBg('logo-footer');
 </script>
 
 <!-- Floating WhatsApp -->

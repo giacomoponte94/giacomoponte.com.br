@@ -50,6 +50,17 @@
 }
 
 /* ============================================================
+   LOADING SPLASH
+   ============================================================ */
+body.loading{overflow:hidden;}
+#splash{position:fixed;inset:0;z-index:99999;background:#05101c;display:flex;align-items:center;justify-content:center;transition:opacity 0.6s ease,visibility 0.6s ease;}
+#splash::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(45,140,212,0.18) 0%,transparent 55%);pointer-events:none;}
+#splash img{height:96px;width:auto;opacity:0;animation:splashIn 1.2s cubic-bezier(0.22,0.61,0.36,1) both 0.15s;filter:drop-shadow(0 4px 30px rgba(45,140,212,0.45));position:relative;z-index:1;}
+#splash.gone{opacity:0;visibility:hidden;pointer-events:none;}
+@keyframes splashIn{0%{opacity:0;transform:scale(0.94);}60%{opacity:1;transform:scale(1.005);}100%{opacity:1;transform:scale(1);}}
+@media (prefers-reduced-motion: reduce){#splash img{animation:none;opacity:1;}}
+
+/* ============================================================
    RESET & BASE
    ============================================================ */
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -319,7 +330,12 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
 }
 </style>
 </head>
-<body>
+<body class="loading">
+
+<!-- LOADING SPLASH -->
+<div id="splash" aria-hidden="true">
+  <img src="giacomoponte.png" alt="Giácomo Ponte">
+</div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -639,6 +655,14 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
 </a>
 
 <script>
+// Loading splash — remove após carregar fontes/assets
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('splash').classList.add('gone');
+    document.body.classList.remove('loading');
+  }, 900);
+});
+
 // Nav scroll state
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {

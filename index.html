@@ -370,12 +370,13 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
   .hero .letreiro{font-size:clamp(1.875rem,9vw,4.5rem);}
   .hero-portrait{width:100%;max-width:420px;margin:0 auto;}
 }
-.hero-nameplate{display:grid;grid-template-columns:max-content;max-width:100%;}
+.hero-nameplate{display:grid;grid-template-columns:minmax(0,max-content);width:max-content;max-width:100%;text-align:center;}
 .hero-nameplate .lt-eyebrow,.hero-nameplate .lt-div{justify-content:center;}
 .hero-nameplate .lt-eyebrow::before,.hero-nameplate .lt-eyebrow::after,
 .hero-nameplate .lt-div::before,.hero-nameplate .lt-div::after{flex:1;width:auto;}
 .hero-nameplate .letreiro{text-align:center;}
-.hero .h-tag{margin-inline:0;}
+.hero-nameplate .h-tag{margin-inline:0;text-align:center;max-width:none;}
+.hero-nameplate .lt-sub,.hero-nameplate .h-tag{width:0;min-width:100%;}
 @media(max-width:760px){
   .hero-nameplate .lt-eyebrow{gap:12px;}
 }
@@ -428,12 +429,12 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
           <span class="n2">Ponte</span>
         </h1>
         <div class="lt-div"><span></span></div>
+        <div class="lt-sub">
+          <span class="s1">Hipertrofia &amp; Emagrecimento</span>
+          <span class="s2">Fortaleza, Ceará</span>
+        </div>
+        <p class="h-tag"><strong>Treino individualizado para quem quer ganhar massa muscular e emagrecer.</strong><br>Atendimento online e presencial em Fortaleza.</p>
       </div>
-      <div class="lt-sub">
-        <span class="s1">Hipertrofia &amp; Emagrecimento</span>
-        <span class="s2">Fortaleza, Ceará</span>
-      </div>
-      <p class="h-tag"><strong>Treino individualizado para quem quer ganhar massa muscular e emagrecer.</strong><br>Atendimento online e presencial em Fortaleza.</p>
     </div>
     <figure class="hero-portrait">
       <img src="retrato-capa-recorte.webp" alt="Giácomo Ponte, personal trainer" width="900" height="900" fetchpriority="high">

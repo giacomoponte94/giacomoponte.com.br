@@ -345,7 +345,10 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
 .pc-cta::after,.ch-row::before{content:none;}
 .plan-card .pc-freq{font-size:.875rem;letter-spacing:.06em;}
 .contact-body{display:block;}
-.contact-body .channels-v2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.contact-body .channels-v2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:560px;margin-top:12px;}
+.contact-body .ch-row{padding:14px 18px;gap:12px;min-height:60px;}
+.contact-body .ch-row .val{font-size:1.25rem;}
+.contact-body .ch-row .ch-ico{width:24px;height:24px;}
 .ch-row .val{line-height:1.2;}
 @media(max-width:760px){
   .contact-body .channels-v2{grid-template-columns:1fr;}

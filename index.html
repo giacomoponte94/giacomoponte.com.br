@@ -351,27 +351,13 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
 }
 
 #consultoria,#planos,#contato{scroll-margin-top:90px;}
-.online-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);}
-.online-steps{padding-left:1.5rem;display:grid;gap:1.5rem;align-content:start;}
-.online-steps li{padding-left:.5rem;}
-.online-steps li::marker{color:var(--gp-accent-l);font-weight:700;}
-.online-steps p,.workout-example p{margin-top:.35rem;line-height:1.65;}
-.online-offer{padding:clamp(18px,4vw,32px);background:var(--gp-navy);border:1px solid rgba(45,140,212,.35);}
-.online-price{margin-bottom:1rem;}
-.online-price strong{font-size:clamp(1.65rem,4vw,2.3rem);}
-.online-offer .btn-primary{padding:14px 18px;font-size:.875rem;letter-spacing:normal;min-height:44px;}
-.online-offer .btn-primary::after,.pc-cta::after,.ch-row::before{content:none;}
-.workout-example{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(45,140,212,.35);}
-.workout-example h3{font-size:1rem;}
-.workout-example dl{margin:1rem 0 0;display:grid;gap:.75rem;}
-.workout-example dt{font-weight:600;}
-.workout-example dd{margin:0;}
+.pc-cta::after,.ch-row::before{content:none;}
 .plan-card .pc-freq{font-size:.875rem;letter-spacing:.06em;}
 .contact-body{display:block;}
 .contact-body .channels-v2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
 .ch-row .val{line-height:1.2;}
 @media(max-width:760px){
-  .online-grid,.contact-body .channels-v2{grid-template-columns:1fr;}
+  .contact-body .channels-v2{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -430,33 +416,6 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
     <div class="h-ctas">
       <a href="#consultoria" class="btn-white">Consultoria online</a>
       <a href="#planos" class="btn-outline-w">Personal em Fortaleza</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONSULTORIA ONLINE -->
-<section class="chapter" id="consultoria">
-  <header class="chapter-head reveal">
-    <h2 class="ttl">Consultoria <em>online</em>.</h2>
-    <p class="lead">Treino individualizado para ganhar massa muscular ou emagrecer, com acompanhamento de onde você estiver.</p>
-  </header>
-  <div class="online-grid reveal">
-    <ol class="online-steps">
-      <li><strong>Anamnese inicial</strong><p>Entendo seu histórico de treino, seus objetivos e a sua rotina.</p></li>
-      <li><strong>Treino no Personal Pro</strong><p>Você recebe a prescrição individualizada com exercícios, séries, repetições e intervalos.</p></li>
-      <li><strong>Acompanhamento durante o bimestre</strong><p>Tire dúvidas pelo WhatsApp, envie vídeos para correção da execução e receba orientações e ajustes conforme a necessidade.</p></li>
-    </ol>
-    <div class="online-offer">
-      <p class="online-price"><strong>R$ 350</strong> por bimestre</p>
-      <a class="btn-primary" href="https://wa.me/5585985177450?text=Ol%C3%A1%2C%20Gi%C3%A1como!%20Vim%20pelo%20site%20e%20quero%20saber%20como%20come%C3%A7ar%20a%20consultoria%20online." target="_blank" rel="noopener">Começar pelo WhatsApp</a>
-      <div class="workout-example">
-        <h3>Exemplo de treino no Personal Pro</h3>
-        <p>Dados ilustrativos</p>
-        <dl>
-          <div><dt>Leg press 45°</dt><dd>3 séries · 10 repetições · 90 s</dd></div>
-          <div><dt>Remada baixa</dt><dd>3 séries · 12 repetições · 75 s</dd></div>
-        </dl>
-      </div>
     </div>
   </div>
 </section>
@@ -606,17 +565,18 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
       <a href="#" class="pc-cta" data-plan="Pacote de Aulas">Escolher Pacote</a>
     </div>
 
-    <div class="plan-card">
+    <div class="plan-card" id="consultoria">
       <div class="pc-head"><span class="pc-ix">07</span><span class="pc-freq">Online</span></div>
       <h3 class="pc-name">Consultoria</h3>
       <div class="pc-rule"></div>
       <ul>
-        <li>Treino individualizado pelo Personal Pro</li>
-        <li>Acompanhamento e ajustes durante o bimestre</li>
-        <li>Correção de execução por vídeo</li>
-        <li>R$ 350 por bimestre</li>
+        <li>Anamnese inicial</li>
+        <li>Prescrição individualizada e acompanhamento no Personal Pro</li>
+        <li>Orientações e suporte pelo WhatsApp</li>
+        <li>Correção da execução por vídeos enviados pelo aluno</li>
+        <li>Ajustes no treino conforme a necessidade ao longo do bimestre</li>
       </ul>
-      <a href="#consultoria" class="pc-cta">Conhecer a consultoria</a>
+      <a href="https://wa.me/5585985177450?text=Ol%C3%A1%2C%20Gi%C3%A1como!%20Vim%20pelo%20site%20e%20quero%20saber%20como%20come%C3%A7ar%20a%20consultoria%20online." class="pc-cta" target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
 
   </div>
@@ -663,7 +623,6 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
           <li><a href="#sobre">Sobre mim</a></li>
           <li><a href="#stats">Números</a></li>
           <li><a href="#planos">Planos</a></li>
-          <li><a href="#consultoria">Consultoria Online</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>

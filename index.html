@@ -363,9 +363,8 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
 .hero .lt-div{margin:26px 0 20px;}
 .hero .h-tag{margin-top:24px;text-align:left;}
 .hero .h-ctas{margin-top:28px;justify-content:flex-start;}
-.hero-portrait{position:relative;margin:0;aspect-ratio:1;overflow:hidden;border:1px solid rgba(95,166,222,.24);border-radius:4px;background:#091827;box-shadow:0 24px 72px rgba(0,0,0,.34);}
-.hero-portrait img{display:block;width:100%;height:100%;object-fit:cover;}
-.hero-portrait::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,16,28,.34),transparent 44%);pointer-events:none;}
+.hero-portrait{margin:0;aspect-ratio:1;}
+.hero-portrait img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 16px 28px rgba(0,0,0,.22));mask-image:linear-gradient(to bottom,#000 90%,transparent);}
 @media(max-width:760px){
   .hero{padding-top:100px;}
   .hero-layout{grid-template-columns:minmax(0,1fr);max-width:480px;gap:32px;}
@@ -437,7 +436,7 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
       </div>
     </div>
     <figure class="hero-portrait">
-      <img src="retrato-capa.webp" alt="Giácomo Ponte, personal trainer" width="900" height="900" fetchpriority="high">
+      <img src="retrato-capa-recorte.webp" alt="Giácomo Ponte, personal trainer" width="900" height="900" fetchpriority="high">
     </figure>
   </div>
 </section>

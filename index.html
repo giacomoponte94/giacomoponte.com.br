@@ -197,16 +197,14 @@ section.chapter{padding:140px 44px;position:relative;}
 .modality button:not(.on):hover{color:var(--gp-accent-l);}
 .modality .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:0.7;}
 
-.plans-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(45,140,212,0.14);}
-.plan-card{background:var(--gp-navy-deep);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:background 0.3s;min-height:460px;border-right:1px solid rgba(45,140,212,0.14);border-bottom:1px solid rgba(45,140,212,0.14);}
-.plan-card:nth-child(4n){border-right:none;}
-.plan-card:nth-last-child(-n+3):not(:nth-child(4n)){border-bottom:none;}
-.plan-card:last-child{border-bottom:none;}
+.plans-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;}
+.plans-grid--extras{max-width:640px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px;}
+.plan-card{background:var(--gp-navy-deep);padding:40px clamp(16px,2vw,28px) 36px;display:flex;flex-direction:column;position:relative;transition:background 0.3s;min-height:460px;border:1px solid rgba(45,140,212,0.14);min-width:0;}
 .plan-card:hover{background:rgba(22,34,50,1);}
 .plan-card .pc-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:14px;}
 .plan-card .pc-ix{font-family:var(--font-display);font-size:0.78rem;letter-spacing:0.18em;color:rgba(45,140,212,0.6);}
 .plan-card .pc-freq{font-size:0.54rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gp-accent-l);font-weight:700;}
-.plan-card .pc-name{font-family:var(--font-display);font-size:2.1rem;letter-spacing:0.025em;color:var(--gp-off-white);line-height:1;margin-bottom:18px;}
+.plan-card .pc-name{font-family:var(--font-display);font-size:clamp(1.5rem,2.3vw,2.1rem);letter-spacing:0.025em;color:var(--gp-off-white);line-height:1;margin-bottom:18px;}
 .plan-card .pc-rule{width:36px;height:1px;background:var(--gp-accent);margin-bottom:22px;}
 .plan-card ul{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:9px;flex:1;}
 .plan-card li{font-size:0.8rem;line-height:1.55;color:rgba(240,237,232,0.72);font-weight:300;padding-left:16px;position:relative;}
@@ -328,7 +326,7 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
   .stats-section{padding:80px 26px;}
   .about-body{max-width:100%;}
   .stats-tiles{grid-template-columns:1fr 1fr;}
-  .plans-grid{grid-template-columns:repeat(2,1fr);}
+   .plans-grid:not(.plans-grid--extras){grid-template-columns:repeat(2,minmax(0,1fr));}
   .plan-card.featured{transform:none;}
   .plan-card.featured:hover{transform:translateY(-4px);}
   .contact-body{grid-template-columns:1fr;gap:36px;}
@@ -342,10 +340,7 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
   .hero .h-ctas{flex-direction:column;align-items:stretch;}
   .hero .h-ctas a{justify-content:center;}
   .stats-tiles{grid-template-columns:1fr;}
-  .plans-grid{grid-template-columns:1fr;}
-  .plan-card:nth-child(4n){border-right:1px solid rgba(45,140,212,0.14);}
-  .plan-card:nth-last-child(-n+3):not(:nth-child(4n)){border-bottom:1px solid rgba(45,140,212,0.14);}
-  .plan-card:last-child{border-right:none;border-bottom:none;}
+  .plans-grid,.plans-grid:not(.plans-grid--extras){grid-template-columns:1fr;}
   .foot-grid{grid-template-columns:1fr;}
   .chapter-head{margin-bottom:48px;}
 }
@@ -551,7 +546,9 @@ footer{background:var(--gp-navy-deeper);padding:80px 44px 36px;border-top:1px so
       </ul>
       <a href="#" class="pc-cta" data-plan="Elite">Escolher Elite</a>
     </div>
+  </div>
 
+  <div class="plans-grid plans-grid--extras reveal">
     <div class="plan-card">
       <div class="pc-head"><span class="pc-ix">06</span><span class="pc-freq">Avulsa</span></div>
       <h3 class="pc-name">Pacote</h3>
